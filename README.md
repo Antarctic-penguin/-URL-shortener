@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 5. 若看見「Express is listening on http://localhost:3000」表示開啟成功
-6.請進入瀏覽器輸入  
+6. 請進入瀏覽器輸入  
 ```
 http://localhost:3000
 ```
