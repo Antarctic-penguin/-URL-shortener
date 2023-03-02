@@ -28,7 +28,7 @@ http://localhost:3000
 請連續輸入兩次  ctrl + C
 
 ## 工具
-Node.js 18.12.1
+Node.js
 
 
 Express4.18.2
@@ -37,7 +37,7 @@ Express4.18.2
 Express-handlebars 6.0.7
 
 
-Mongoose 6.9.2
+Mongoose 7.0.0
 
 
 MongoDB
