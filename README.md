@@ -12,12 +12,18 @@
 1. 請先安裝node.js與nvm
 2. clone本專案
 3. 開啟終端機輸入
+```
 npm install
+```
 4. 繼續輸入
+```
 npm run dev
+```
 5. 若看見「Express is listening on http://localhost:3000」表示開啟成功
 6.請進入瀏覽器輸入  
+```
 http://localhost:3000
+```
 7. 如欲暫停或關閉：
 請連續輸入兩次  ctrl + C
 
