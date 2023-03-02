@@ -1,0 +1,16 @@
+<div class="d-flex flex-column mt-5">
+  <h1 class="text-center">URL Shortener</h1>
+  <img class="url-img mx-auto mt-5"
+    src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="url">
+  <div class="mt-5 ">
+    <form action="/shorten" method="POST">
+      <div class="d-flex justify-content-center">
+        <input type="url" class="url-input" placeholder="在這裡輸入要縮短的網址" name="url" required>
+      </div>
+      <div class="mt-3 text-center">
+        <button type="submit" class="btn btn-outline-primary short-btn" value="縮短網址">縮短網址</button>
+        <button type="reset" class="btn btn-danger ms-3" value="重置">重置</button>
+      </div>
+    </form>
+  </div>
+</div>
