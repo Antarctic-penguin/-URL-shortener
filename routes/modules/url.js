@@ -13,12 +13,7 @@ router.post('/shorten', (req, res) => {
     .lean()
     .then(url => {
       if (url) {
-        urlList.findOne({ url: req.body.url })
-          .lean()
-          .then(url => {
-            res.render('finish', { shortUrl: url.shortUrl, id: url._id })
-          })
-          .catch(error => console.error(error))
+        res.render('finish', { shortUrl: url.shortUrl, id: url._id })
       } else {
         function generateURL() {
           const checkURL = `http://localhost:3000/${shortURL()}`
@@ -35,12 +30,21 @@ router.post('/shorten', (req, res) => {
                       .then((url) => {
                         res.render('finish', { shortUrl: checkURL, id: url._id })
                       })
-                      .catch(error => console.error(error))
+                      .catch(error => {
+                        console.error(error)
+                        res.render('errorPage', { error: error.message })
+                      })
                   })
-                  .catch(error => console.error(error))
+                  .catch(error => {
+                    console.error(error)
+                    res.render('errorPage', { error: error.message })
+                  })
               }
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+              console.error(error)
+              res.render('errorPage', { error: error.message })
+            })
         }
         generateURL()
       }
@@ -66,9 +70,15 @@ router.post('/edit/:_id', (req, res) => {
             res.render('finish', { shortUrl: req.body.editUrl, id: req.params._id })
           }
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+          console.error(error)
+          res.render('errorPage', { error: error.message })
+        })
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error)
+      res.render('errorPage', { error: error.message })
+    })
 })
 
 // 重新定向
@@ -82,7 +92,10 @@ router.get('/:short', (req, res) => [
         res.redirect(url.url)
       }
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error)
+      res.render('errorPage', { error: error.message })
+    })
 ])
 
 module.exports = router

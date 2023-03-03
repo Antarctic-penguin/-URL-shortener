@@ -7,10 +7,7 @@ function generateShortURL() {
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const upperCaseLetters = lowerCaseLetters.toUpperCase()
   const numbers = '1234567890'
-  let collection = []
-  collection = collection.concat(lowerCaseLetters.split(''))
-  collection = collection.concat(upperCaseLetters.split(''))
-  collection = collection.concat(numbers.split(''))
+  const collection = lowerCaseLetters + upperCaseLetters + numbers
   let ShortURL = ''
   for (let i = 0; i < 5; i++) {
     ShortURL += sample(collection)

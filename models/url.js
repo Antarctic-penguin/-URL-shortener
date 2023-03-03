@@ -4,9 +4,12 @@ const urlSchema = new Schema({
   url: {
     type: String,
     required: true,
+    unique: true,
   },
   shortUrl: {
     type: String,
+    required: true,
+    unique: true,
   }
 })
 module.exports = mongoose.model('url', urlSchema) 
