@@ -24,16 +24,8 @@ router.post('/shorten', (req, res) => {
                 generateURL()
               } else {
                 urlList.create({ url: req.body.url, shortUrl: checkURL })
-                  .then(() => {
-                    urlList.findOne({ url: req.body.url })
-                      .lean()
-                      .then((url) => {
-                        res.render('finish', { shortUrl: checkURL, id: url._id })
-                      })
-                      .catch(error => {
-                        console.error(error)
-                        res.render('errorPage', { error: error.message })
-                      })
+                  .then((url) => {
+                    res.render('finish', { shortUrl: checkURL, id: url._id })
                   })
                   .catch(error => {
                     console.error(error)
