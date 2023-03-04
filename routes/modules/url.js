@@ -59,7 +59,13 @@ router.post('/edit/:_id', (req, res) => {
           } else {
             url.shortUrl = req.body.editUrl
             url.save()
-            res.render('finish', { shortUrl: req.body.editUrl, id: req.params._id })
+              .then(() => {
+                res.render('finish', { shortUrl: req.body.editUrl, id: req.params._id })
+              })
+              .catch(error => {
+                console.error(error)
+                res.render('errorPage', { error: error.message })
+              })
           }
         })
         .catch(error => {
